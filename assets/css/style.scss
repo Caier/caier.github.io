@@ -1,0 +1,31 @@
+---
+---
+
+/*
+  If the number of TAB files has changed, the following variable is required.
+  And it must be defined before `@import`.
+*/
+$tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
+
+@import "{{ site.theme }}";
+
+html[data-mode=dark] {
+    --main-bg: rgb(20,20,17);
+}
+
+/* append your custom style below */
+@media(prefers-color-scheme: dark) {
+    html:not([data-mode]), html[data-mode=dark] {
+        --main-bg: rgb(20,20,17);
+    }
+}
+
+@media(min-width: 1650px) {
+    #sidebar ul {
+        padding-left: 1.5rem;
+    }
+
+    #sidebar .profile-wrapper .site-subtitle, #sidebar .profile-wrapper .site-title, #sidebar .profile-wrapper #avatar {
+        margin-left: 3.5rem;
+    }
+}
